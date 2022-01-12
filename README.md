@@ -1,2 +1,2 @@
 # cnet
-Cnet is a lightweight, header-only framework to train and deploy Convolutional Neural Networks and MLPs.
+Cnet is a lightweight, header-only framework to train and use Convolutional Neural Networks and MLPs.
