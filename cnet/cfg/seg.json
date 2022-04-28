@@ -1,0 +1,333 @@
+{
+  "task":
+  {
+    "type": "segmentation"
+  },
+  "data":
+  {
+    "preproc":
+    {
+      "input":
+      {
+        "resize_to": 360
+      },
+      "label":
+      {
+        "resize_to": 360,
+        "crop_to": 228
+      }
+    },
+    "train":
+    {
+      "data_file": "...",
+      "num_items": 100,
+      "num_threads": 1,
+      "shuffle": 1
+    },
+    "val":
+    {
+      "data_file": "...",
+      "num_items": 100,
+      "num_threads": 1,
+      "shuffle": 1
+    }
+  },
+  "estimator":
+  {
+    "batch_size": 8,
+    "test_iter": 100,
+    "max_iter": 100000,
+    "display_iter": 1,
+    "save_iter": 0,
+    "save_path": "...",
+    "num_threads": 2,
+    "image_logging":
+    {
+      "logging_enabled": 1,
+      "log_input": 1,
+      "log_output": 1,
+      "use_argmax": 1,
+      "log_label": 1,
+      "log_iter": 10,
+      "log_dir": "...",
+      "log_num": 2
+    },
+    "debug":
+    {
+      "print_model": 1
+    },
+    "solver":
+    {
+      "type": "Adam",
+      "lr": 0.01,
+      "beta1": 0.9,
+      "beta2": 0.999,
+      "epsilon": 10e-8
+    },
+    "loss":
+    {
+      "type": "SparseSoftmaxCrossEntropy"
+    }
+  },
+  "model":
+  {
+    "layer":[
+      {
+        "type": "Input",
+        "id": 0,
+        "input_width": 360,
+        "input_channels": 1
+      },
+      {
+        "type": "Conv2d",
+        "id": 1,
+        "num_kernels": 2,
+        "kernel_width": 3,
+        "stride": 1,
+        "padding": "SAME",
+        "activation": "RELU",
+        "initializer": "HE_NORMAL"
+      },
+      {
+        "type": "Conv2d",
+        "id": 2,
+        "num_kernels": 2,
+        "kernel_width": 3,
+        "stride": 1,
+        "padding": "SAME",
+        "activation": "RELU",
+        "initializer": "HE_NORMAL"
+      },
+      {
+        "type": "MaxPool2d",
+        "id": 3,
+        "window_width": 2,
+        "stride": 2
+      },
+      {
+        "type": "Conv2d",
+        "id": 4,
+        "num_kernels": 4,
+        "kernel_width": 3,
+        "stride": 1,
+        "padding": "SAME",
+        "activation": "RELU",
+        "initializer": "HE_NORMAL"
+      },
+      {
+        "type": "Conv2d",
+        "id": 5,
+        "num_kernels": 4,
+        "kernel_width": 3,
+        "stride": 1,
+        "padding": "SAME",
+        "activation": "RELU",
+        "initializer": "HE_NORMAL"
+      },
+      {
+        "type": "MaxPool2d",
+        "id": 6,
+        "window_width": 2,
+        "stride": 2
+      },
+      {
+        "type": "Conv2d",
+        "id": 7,
+        "num_kernels": 8,
+        "kernel_width": 3,
+        "stride": 1,
+        "padding": "SAME",
+        "activation": "RELU",
+        "initializer": "HE_NORMAL"
+      },
+      {
+        "type": "Conv2d",
+        "id": 8,
+        "num_kernels": 8,
+        "kernel_width": 3,
+        "stride": 1,
+        "padding": "SAME",
+        "activation": "RELU",
+        "initializer": "HE_NORMAL"
+      },
+      {
+        "type": "MaxPool2d",
+        "id": 9,
+        "window_width": 2,
+        "stride": 2
+      },
+      {
+        "type": "Conv2d",
+        "id": 10,
+        "num_kernels": 16,
+        "kernel_width": 3,
+        "stride": 1,
+        "padding": "SAME",
+        "activation": "RELU",
+        "initializer": "HE_NORMAL"
+      },
+      {
+        "type": "Conv2d",
+        "id": 11,
+        "num_kernels": 16,
+        "kernel_width": 3,
+        "stride": 1,
+        "padding": "SAME",
+        "activation": "RELU",
+        "initializer": "HE_NORMAL"
+      },
+      {
+        "type": "MaxPool2d",
+        "id": 12,
+        "window_width": 2,
+        "stride": 2
+      },
+      {
+        "type": "Conv2d",
+        "id": 13,
+        "num_kernels": 32,
+        "kernel_width": 3,
+        "stride": 1,
+        "padding": "valid",
+        "activation": "RELU",
+        "initializer": "HE_NORMAL"
+      },
+      {
+        "type": "Conv2d",
+        "id": 14,
+        "num_kernels": 32,
+        "kernel_width": 3,
+        "stride": 1,
+        "padding": "valid",
+        "activation": "RELU",
+        "initializer": "HE_NORMAL"
+      },
+      {
+        "type": "Conv2dTranspose",
+        "id": 15,
+        "num_kernels": 16,
+        "kernel_width": 2,
+        "stride": 2,
+        "padding": "valid",
+        "activation": "RELU",
+        "initializer": "HE_NORMAL"
+      },
+      {
+        "type": "Conv2dConcat",
+        "id": 16,
+        "concat_layer_id": 11,
+        "num_kernels": 16,
+        "kernel_width": 3,
+        "stride": 1,
+        "padding": "valid",
+        "activation": "RELU",
+        "initializer": "HE_NORMAL"
+      },
+      {
+        "type": "Conv2d",
+        "id": 17,
+        "num_kernels": 16,
+        "kernel_width": 3,
+        "stride": 1,
+        "padding": "valid",
+        "activation": "RELU",
+        "initializer": "HE_NORMAL"
+      },
+      {
+        "type": "Conv2dTranspose",
+        "id": 18,
+        "num_kernels": 8,
+        "kernel_width": 2,
+        "stride": 2,
+        "padding": "valid",
+        "activation": "RELU",
+        "initializer": "HE_NORMAL"
+      },
+      {
+        "type": "Conv2dConcat",
+        "id": 19,
+        "concat_layer_id": 8,
+        "num_kernels": 8,
+        "kernel_width": 3,
+        "stride": 1,
+        "padding": "valid",
+        "activation": "RELU",
+        "initializer": "HE_NORMAL"
+      },
+      {
+        "type": "Conv2d",
+        "id": 20,
+        "num_kernels": 8,
+        "kernel_width": 3,
+        "stride": 1,
+        "padding": "valid",
+        "activation": "RELU",
+        "initializer": "HE_NORMAL"
+      },
+      {
+        "type": "Conv2dTranspose",
+        "id": 21,
+        "num_kernels": 4,
+        "kernel_width": 2,
+        "stride": 2,
+        "padding": "valid",
+        "activation": "RELU",
+        "initializer": "HE_NORMAL"
+      },
+      {
+        "type": "Conv2dConcat",
+        "id": 22,
+        "concat_layer_id": 4,
+        "num_kernels": 8,
+        "kernel_width": 3,
+        "stride": 1,
+        "padding": "valid",
+        "activation": "RELU",
+        "initializer": "HE_NORMAL"
+      },
+      {
+        "type": "Conv2d",
+        "id": 23,
+        "num_kernels": 4,
+        "kernel_width": 3,
+        "stride": 1,
+        "padding": "valid",
+        "activation": "RELU",
+        "initializer": "HE_NORMAL"
+      },
+      {
+        "type": "Conv2dTranspose",
+        "id": 24,
+        "num_kernels": 2,
+        "kernel_width": 2,
+        "stride": 2,
+        "padding": "valid",
+        "activation": "RELU",
+        "initializer": "HE_NORMAL"
+      },
+      {
+        "type": "Conv2dConcat",
+        "id": 25,
+        "concat_layer_id": 2,
+        "num_kernels": 2,
+        "kernel_width": 3,
+        "stride": 1,
+        "padding": "valid",
+        "activation": "RELU",
+        "initializer": "HE_NORMAL"
+      },
+      {
+        "type": "Conv2d",
+        "id": 26,
+        "num_kernels": 2,
+        "kernel_width": 3,
+        "stride": 1,
+        "padding": "valid",
+        "activation": "RELU",
+        "initializer": "HE_NORMAL"
+      }
+    ]
+  }
+
+}
+
