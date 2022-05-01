@@ -11,7 +11,7 @@ Currently, the framework supports the following layer types:
 
 Training can be performed in parallel on CPU.
 
-The following 3rd Parties are required to use this project:
+The following 3rd parties are required to use this project:
 
     - Eigen (>= 3.x)
     - Boost (>= 1.6)
