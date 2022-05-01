@@ -1,5 +1,3 @@
-/* Copyright (C) Siemens Logistics GmbH 2019 */
-
 /**
 Implementation of several neural network layers based on Eigen
 

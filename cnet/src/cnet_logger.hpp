@@ -1,7 +1,3 @@
-//
-// Created by schobast on 1/12/2020.
-//
-
 #ifndef CNET_LOGGER_HPP
 #define CNET_CNET_LOGGER_HPP
 

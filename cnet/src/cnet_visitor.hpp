@@ -1,4 +1,4 @@
-#ifndef  CNET_Visitor_HPP
+#ifndef CNET_Visitor_HPP
 #define CNET_Visitor_HPP
 
 
