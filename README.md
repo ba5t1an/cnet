@@ -9,7 +9,16 @@ Currently, the framework supports the following layer types:
     - CropAndConcat
     - MaxPool2D
 
-Training can be performed in parallel on CPU. 
+Training can be performed in parallel on CPU.
+
+The following 3rd Parties are required to use this project:
+
+    - Eigen (>= 3.x)
+    - Boost (>= 1.6)
+    - OpenCV (>= 3.x)
+
+
+Note: The conversation between Eigen and OpenCV and vise versa uses a header file by Eugene Khvedchenya. This can be retrieved via https://gist.github.com/BloodAxe/c94d65d5977fb1d3e53f and must be renamed appropriately. It's also possible to use OpenCV's build-in functions for this task. May update it soon. 
 
 ## Training on MNIST
 
