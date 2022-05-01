@@ -11,7 +11,7 @@ Currently, the framework supports the following layer types:
 
 Training can be performed in parallel on CPU. 
 
-##Training on MNIST
+## Training on MNIST
 
 The training on MNIST is fairly simple and should demonstrate how to use the framework. First, you'll have to get the database from http://yann.lecun.com/exdb/mnist/. Afterwards, cnet offers the required functions to read the format.	
 
