@@ -71,7 +71,7 @@ The training on MNIST is fairly simple and should demonstrate how to use the fra
 		-	val_data		: 	dataset with validation data
 		-	batch_size		: 	8
 		-	max_iter		: 	max # of batches for the whole training
-		-	display_iter	: 	display loss after every nth # of batch
+		-	display_iter	        : 	display loss after every nth # of batch
 		-	save_iter		:	save model every nth # of batches
 		-	test_iter		:	test model every nth # of batches
 	*/
