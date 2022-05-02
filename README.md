@@ -96,12 +96,12 @@ The resulting accuracy should be around 98% after training.
 
 Saving models as JSON files is fairly simple using the Graph wrapper and the JsonSaver class.
 
-Saving models:
+### Saving models:
 
     Cnet::JsonSaver saver("...");
 	saver.store(&graph);
 
-Restoring models:
+### Restoring models:
 
     Cnet::Graph graph;
     Cnet::JsonSaver saver("...");
