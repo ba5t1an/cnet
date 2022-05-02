@@ -92,6 +92,21 @@ The training on MNIST is fairly simple and should demonstrate how to use the fra
 
 The resulting accuracy should be around 98% after training.
 
+## Saving and restoring models
+
+Saving models as JSON files is fairly simple using the Graph wrapper and the JsonSaver class.
+
+Saving models:
+
+    Cnet::JsonSaver saver("...");
+	saver.store(&graph);
+
+Restoring models:
+
+    Cnet::Graph graph;
+    Cnet::JsonSaver saver("...");
+	saver.restore(&graph);
+
 
 
 
