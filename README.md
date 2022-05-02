@@ -8,6 +8,7 @@ Currently, the framework supports the following layer types:
     - FullyConnected
     - CropAndConcat
     - MaxPool2D
+    - Dropout
 
 Training can be performed in parallel on CPU.
 
