@@ -1,5 +1,5 @@
 # cnet
-Cnet is a lightweight, header-only framework to train and use Convolutional Neural Networks and MLPs. See examples/examples.cpp on how to use it.
+cnet is a lightweight, header-only framework to train and use Convolutional Neural Networks and MLPs. See examples/examples.cpp on how to use it.
 
 Currently, the framework supports the following layer types:
 
@@ -29,7 +29,13 @@ The training on MNIST is fairly simple and should demonstrate how to use the fra
 	params.encode_one_hot = true;
 	params.num_classes = 10;
 	std::shared_ptr<Cnet::Pipeline> pipeline = std::make_shared<Cnet::Pipeline>();
+	/*
+	Normalize every pixel by dividing it by 255.
+	*/
 	pipeline->add_operation(std::unique_ptr<Cnet::ScaleOp>(new Cnet::ScaleOp(255)));
+	/*
+	Defines datasets for training and validation data
+	*/
 	Cnet::InMemoryDataset train_data(params, pipeline);
 	Cnet::read_mnist(train_data, "train-images-idx3-ubyte", "train-labels-idx1-ubyte");
 	Cnet::InMemoryDataset val_data(params, pipeline);
